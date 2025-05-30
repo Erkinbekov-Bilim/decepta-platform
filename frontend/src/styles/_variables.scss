@@ -1,0 +1,29 @@
+:root {
+  /* Светлая тема */
+
+  /* Основные цвета */
+  --light-bg-color: #F5F5F5; /* Фон */
+  --light-primary-color: #6F42C1; /* Основной фиолетовый */
+  --light-secondary-color: #E0E0E0; /* Второстепенный серебристый */
+  --light-text-color: #4A2C8A; /* Основной текст */
+  --light-heading-color: #000000; /* Заголовки */
+  --light-border-color: #D1D1D1; /* Границы и разделители */
+
+  /* Элементы UI */
+  --light-card-bg: #FFFFFF; /* Фон карточек и модальных окон */
+  --light-card-border: #D1D1D1; /* Границы карточек */
+  --light-nav-bg: #E0E0E0; /* Фон навигации */
+  --light-nav-active: #6F42C1; /* Активный элемент навигации */
+
+  /* Кнопки */
+  --light-btn-primary-bg: #6F42C1; /* Фон основных кнопок */
+  --light-btn-primary-text: #FFFFFF; /* Текст на основных кнопках */
+  --light-btn-secondary-bg: #FFFFFF; /* Фон второстепенных кнопок */
+  --light-btn-secondary-text: #6F42C1; /* Текст на второстепенных кнопках */
+  --light-btn-border: #6F42C1; /* Границы кнопок */
+
+  /* Иконки и другие элементы */
+  --light-icon-color: #6F42C1; /* Цвет иконок */
+  --light-hover-bg: #D1C4E9; /* Цвет фона при наведении */
+  --light-hover-text: #4A2C8A; /* Цвет текста при наведении */
+}

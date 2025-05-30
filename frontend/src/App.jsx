@@ -2,9 +2,11 @@ import React from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import Login from './pages/Login'
 import Register from './pages/Register'
-import Home from './pages/Home'
+import MainPage from './pages/mainPage/MainPage'
 import NotFound from './pages/NotFound'
-import ProtectedRoute from './components/ProtectedRoute'
+import AuthProvider from './components/AuthProvider'
+import Layout from './pages/layout/Layout'
+
 
 
 const Logout = () => {
@@ -21,20 +23,20 @@ function App() {
 
   return (
     <>
-      <BrowserRouter>
-        <Routes>
+      <Routes>
+        <Route path='/' element={<Layout />}>
           <Route  path="/" element={
-            <ProtectedRoute>
-              <Home /> 
-            </ProtectedRoute>
+            <AuthProvider>
+              <MainPage /> 
+            </AuthProvider>
           }
           />
           <Route path="/login" element={<Login />}></Route>
           <Route path="/logout" element={<Logout />}></Route>
           <Route path="/register" element={<RegisterAndLogout />}></Route>
           <Route path="*" element={<NotFound />}></Route>
-        </Routes>
-      </BrowserRouter>
+        </Route>
+      </Routes>
     </>
   )
 }

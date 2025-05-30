@@ -1,0 +1,42 @@
+.nav{
+
+  &_links {
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--light-secondary-color);
+    border-radius: 30px;
+    gap: 20px;
+  }
+
+  &_link {
+
+    color: var(--light-text-color);
+    text-decoration: none;
+    border-radius: 30px;
+    transition: all 0.2s ease;
+
+    &_item {
+      width: 100px;
+      height: 50px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      color: var(--light-text-color);
+      text-decoration: none;
+      border-radius: 30px;
+      transition: all 0.2s ease;
+
+      &:hover {
+        background: var(--light-nav-active);
+        color: var(--light-secondary-color);
+      }
+    }
+
+
+  }
+}

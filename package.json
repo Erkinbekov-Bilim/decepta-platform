@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "redux": "^5.0.1"
+  },
+  "devDependencies": {
+    "sass-embedded": "^1.89.0"
+  }
+}
