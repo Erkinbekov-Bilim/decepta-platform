@@ -1,14 +1,22 @@
 import Header from "../../components/header/Header";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
+
 
 
 const Layout = () => {
-  return (
+
+  const location = useLocation();
+  const hideHeaderRoutes = ["/login", "/signup", "/verify-email"];
+
+return (
     <div>
-      <Header />
-      <Outlet />
+      {/* Conditionally render Header if the current path is not in hideHeaderRoutes */}
+      {!hideHeaderRoutes.includes(location.pathname) && <Header />}
+      <main>
+        <Outlet />
+      </main>
     </div>
-  )
-}
+  );
+};
 
 export default Layout;

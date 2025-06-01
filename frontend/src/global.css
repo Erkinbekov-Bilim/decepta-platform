@@ -1,3 +1,5 @@
+@import url('./styles/_variables.scss');
+
 * {
   margin: 0;
   padding: 0;
@@ -14,6 +16,15 @@
 }
 
 body {
-  background-color: #f5f5f5;
+  background-color: var(--light-bg-color);
+  transition: background-color 0.4s ease, color 0.4s ease;
+  
+}
 
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
 }

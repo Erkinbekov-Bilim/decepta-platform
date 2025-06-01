@@ -1,12 +1,9 @@
-import Form from "../components/authForm/AuthForm"
-
+// src/pages/Login.jsx
+import React from 'react';
+import AuthForm from '../components/auth/AuthForm';
 
 const Login = () => {
-  return (
-    <>
-      <Form route="/api/token/" method="login" />
-    </>
-  )
-}
+  return <AuthForm method="login" />;
+};
 
-export default Login
+export default Login;

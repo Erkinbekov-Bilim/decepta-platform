@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.forms import ValidationError
 from django.utils import timezone
 from datetime import timedelta
 
@@ -16,20 +17,28 @@ class UserProfile(models.Model):
     ('manager', 'Manager'),
   )
   
-  user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
-  phone_number = models.CharField(max_length=20, blank=True, null=True)
-  nickname = models.CharField(max_length=50, unique=True)
-  tag_nickname = models.CharField(max_length=51, unique=True)
-  status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='active')
-  role = models.CharField(max_length=20, choices=ROLE_CHOICES, default='user')
-  p2p_followers = models.PositiveIntegerField(default=0)
+  user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='userprofile')
+  nickname = models.CharField(max_length=50, blank=False)
+  tag_nickname = models.CharField(max_length=50, blank=False)
+  phone_number = models.CharField(max_length=15, blank=True, null=True)
+  status = models.CharField(max_length=100, default='active')
+  role = models.CharField(max_length=50, default='user')
+  p2p_followers = models.IntegerField(default=0)
   p2p_rating = models.FloatField(default=0.0)
   created_at = models.DateTimeField(auto_now_add=True)
   
   def save(self, *args, **kwargs):
-    if not self.tag_nickname:
+    if self.nickname and not self.tag_nickname:
       self.tag_nickname = f"@{self.nickname}"
     super().save(*args, **kwargs)
+    
+  def clean(self):
+        if self.phone_number:
+            existing = UserProfile.objects.filter(phone_number=self.phone_number)
+            if self.pk:
+                existing = existing.exclude(pk=self.pk)
+            if existing.exists():
+                raise ValidationError({'phone_number': 'This phone number is already in use.'})
     
   def __str__(self):
     return f"Profile of {self.user.username}"
@@ -57,7 +66,7 @@ class EmailVerification(models.Model):
 
 class Complaint(models.Model):
   user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='complaints')
-  complaints =models.ForeignKey(User, on_delete=models.CASCADE, related_name='filled_complaints')
+  complaint =models.ForeignKey(User, on_delete=models.CASCADE, related_name='filed_complaints', null=True)
   reason = models.TextField()
   created_at = models.DateTimeField(auto_now_add=True)
   resolved = models.BooleanField(default=False)

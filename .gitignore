@@ -304,5 +304,7 @@ pip-selfcheck.json
 # End of https://www.toptal.com/developers/gitignore/api/python,pycharm,venv
 
 
+node
+ore
 node_modules/
-.DS_Store
+yarn-error.log

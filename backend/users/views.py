@@ -4,7 +4,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework_simplejwt.views import TokenObtainPairView
-from .serializers import UserSerializer, EmailVerificationSerializer, ComplaintSerializer
+from .serializers import UserSerializer, EmailVerificationSerializer, ComplaintSerializer, CustomTokenObtainPairSerializer
 from .models import EmailVerification, UserProfile, Complaint
 from django.utils import timezone
 from datetime import timedelta
@@ -14,13 +14,15 @@ from django.core.mail import send_mail
 import string
 
 
-class CustomTokenObtainPairView(TokenObtainPairView):
-  def post(self, request, *args, **kwargs):
-    response = super().post(request, *args, **kwargs)
-    user = User.objects.get(email=request.data['email'])
-    if not user.is_active:
-      return Response({"error": "User is not active"}, status=status.HTTP_401_UNAUTHORIZED)
-    return response
+class CustomTokenObtainPairView(APIView):
+    permission_classes = [AllowAny]
+    serializer_class = CustomTokenObtainPairSerializer
+
+    def post(self, request, *args, **kwargs):
+        print("Received data:", request.data)
+        serializer = self.serializer_class(data=request.data, context={'request': request})
+        serializer.is_valid(raise_exception=True)
+        return Response(serializer.validated_data, status=status.HTTP_200_OK)
   
 class CreateUserView(generics.CreateAPIView):
   queryset = User.objects.all()
@@ -29,12 +31,10 @@ class CreateUserView(generics.CreateAPIView):
   
 
 class UserProfileView(APIView):
-  serializer_class = UserSerializer
   permission_classes = [IsAuthenticated]
   
   def get(self, request):
-    user = request.user
-    serializer = UserSerializer(user)
+    serializer = UserSerializer(request.user)
     return Response(serializer.data)
   
   def patch(self, request):

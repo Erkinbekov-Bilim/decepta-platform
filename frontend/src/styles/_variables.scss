@@ -7,7 +7,8 @@
   --light-secondary-color: #E0E0E0; /* Второстепенный серебристый */
   --light-text-color: #4A2C8A; /* Основной текст */
   --light-heading-color: #000000; /* Заголовки */
-  --light-border-color: #D1D1D1; /* Границы и разделители */
+  --light-border-color: #D1D1D1;
+  --light-shadow-text: #695f7d /* Границы и разделители */
 
   /* Элементы UI */
   --light-card-bg: #FFFFFF; /* Фон карточек и модальных окон */
@@ -26,4 +27,49 @@
   --light-icon-color: #6F42C1; /* Цвет иконок */
   --light-hover-bg: #D1C4E9; /* Цвет фона при наведении */
   --light-hover-text: #4A2C8A; /* Цвет текста при наведении */
+  --ripple-color: #121212; /* цвет из dark --light-nav-active  #121212*/ 
+}
+
+
+:root[data-theme="dark"] {
+  /* Тёмная тема — те же имена переменных, другие значения */
+
+  /* Основные цвета */
+  --light-bg-color: #121212;
+  --light-primary-color: #9B7EDA;
+  --light-secondary-color: #2C2C2C;
+  --light-text-color: #E0D7F7;
+  --light-heading-color: #FFFFFF;
+  --light-border-color: #3A3A3A;
+  --light-shadow-text: #c6c0d4;
+
+  /* Элементы UI */
+  --light-card-bg: #1E1E1E;
+  --light-card-border: #2E2E2E;
+  --light-nav-bg: #1A1A1A;
+  --light-nav-active: #9B7EDA;
+
+  /* Кнопки */
+  --light-btn-primary-bg: #9B7EDA;
+  --light-btn-primary-text: #121212;
+  --light-btn-secondary-bg: transparent;
+  --light-btn-secondary-text: #9B7EDA;
+  --light-btn-border: #9B7EDA;
+
+  /* Иконки и другие элементы */
+  --light-icon-color: #C4A7FF;
+  --light-hover-bg: #2A1B49;
+  --light-hover-text: #E0D7F7;
+  --ripple-color: #F5F5F5; /* цвет из light --light-nav-active */
+  
+}
+
+
+:root,
+:root[data-theme="dark"] {
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+:root{
+  --nav-height: 57px;
 }

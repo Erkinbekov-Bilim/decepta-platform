@@ -1,13 +1,9 @@
-import React from 'react'
-import Form from '../components/authForm/AuthForm'
-
+// src/pages/Register.jsx
+import React from 'react';
+import AuthForm from '../components/auth/AuthForm';
 
 const Register = () => {
-  return (
-    <>
-      <Form route="/api/user/register/" method="register" />
-    </>
-  )
-}
+  return <AuthForm method="register" />;
+};
 
-export default Register
+export default Register;
