@@ -12,6 +12,7 @@ const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(null);
   const [userProfile, setUserProfile] = useState(null);
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(true); 
   const { t } = useTranslation();
 
   useEffect(() => {
@@ -19,7 +20,10 @@ const AuthProvider = ({ children }) => {
       setIsAuthenticated(false);
       setUserProfile(null);
     });
+    checkAuth().finally(() => setIsLoading(false));
   }, []);
+
+  
 
   const checkAuth = async () => {
     const token = localStorage.getItem(ACCESS_TOKEN);
@@ -52,6 +56,7 @@ const AuthProvider = ({ children }) => {
       setUserProfile(null);
       return;
     }
+    setIsLoading(true);
     try {
       const response = await api.post('/api/user/token/refresh/', {
         refresh: refreshToken,
@@ -63,6 +68,8 @@ const AuthProvider = ({ children }) => {
       console.error('Token refresh failed:', error);
       setIsAuthenticated(false);
       setUserProfile(null);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -90,7 +97,7 @@ const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ isAuthenticated, userProfile, fetchUserProfile, logout }}
+      value={{ isAuthenticated, userProfile, fetchUserProfile, logout, isLoading }}
     >
       {children}
     </AuthContext.Provider>

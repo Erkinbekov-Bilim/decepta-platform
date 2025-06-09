@@ -1,0 +1,43 @@
+@import url('../../styles/_variables.scss');
+
+.main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  &_info {
+    width: 520px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &_text {
+    color: var(--color-black-white);
+    font-size: 50px;
+  }
+
+  &_bold {
+    font-weight: 700;
+    color: var(--light-primary-color);
+  }
+
+  &_button {
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    margin-top: 60px;
+    background: var(--light-third-color);
+    color: var(--color-white-for-all);
+    border-radius: 32px;
+    border: 1px solid var(--light-third-color);
+    padding: 25px 15px;
+    transition: all 0.2s ease;
+
+    &:hover {
+      transform: scale(0.95);
+      background: var(--light-primary-color);
+    }
+  }
+}

@@ -1,0 +1,119 @@
+@import url('../../styles/_variables.scss');
+
+.card {
+  &_container {
+    padding: 30px;
+    width: 600px;
+    background: var(--light-card-bg);
+    border: 1px solid var(--light-text-color);
+    border-radius: 42px;
+  }
+
+  &_view_all {
+    font-size: 10px;
+    color: var(--light-text-color);
+  }
+
+  &_tabs {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+  }
+
+  &_links {
+    display: flex;
+    flex-direction: row;
+    height: 40px;
+    justify-content: space-between;
+    align-items: center;
+
+    button {
+      position: relative;
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+      padding-bottom: 10px;
+      transition: all 0.2s ease;
+      color: var(--light-text-color);
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -8px;
+        left: 50%;
+        transform: translateX(-50%) scaleX(0);
+        background-color: var(--light-text-color);
+        transition: transform 0.2s ease;
+        transform-origin: center;
+      }
+
+      &.active {
+        display: inline-block;
+        margin: 0 auto;
+        border-bottom: 3px solid var(--light-text-color);
+
+        &::after {
+          transform: translateX(-50%) scaleX(1);
+        }
+      }
+    }
+  }
+
+  &_body {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &_item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    &_symbol {
+      color: var(--light-text-color);
+    }
+
+    &_naming {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 20px;
+    }
+
+    &_info {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 10px;
+    }
+
+    &_name {
+      font-size: 12px;
+      color: var(--light-shadow-text);
+    }
+
+    img {
+      width: 40px;
+      height: 40px;
+    }
+
+    &_price {
+      display: flex;
+      flex-direction: row;
+      gap: 30px;
+      font-size: 16px;
+      color: var(--light-text-color);
+    }
+
+    .positive {
+      color: var(--coin-positive);
+    }
+
+    .negative {
+      color: var(--coin-negative);
+    }
+  }
+}

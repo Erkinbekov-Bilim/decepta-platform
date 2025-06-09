@@ -4,7 +4,7 @@ import MainPage from './pages/mainPage/MainPage';
 import VerifyEmailForm from './components/auth/VerifyEmailForm';
 import NotFound from './pages/notifications/NotFound';
 import { AuthContext } from './context/AuthContext';
-import { useContext } from 'react';
+import { useContext , useEffect} from 'react';
 import AuthForm from './components/authForm/AuthForm';
 import { IconConfigProvider } from './context/IconConfigContext';
 
@@ -26,7 +26,9 @@ const Logout = () => {
 
 const RegisterAndLogout = () => {
   const { logout } = useContext(AuthContext);
-  logout();
+  useEffect(() => {
+    logout();
+  }, [logout]);
   return <AuthForm method="register" />;
 };
 
@@ -56,13 +58,13 @@ function App() {
             path="/verify-email"
             element={
               <GuestRoute>
-                <VerifyEmailForm />
+                <VerifyEmailForm method="login" />
               </GuestRoute>
             }
           />
           <Route path="/logout" element={<Logout />} />
-          <Route path="*" element={<NotFound />} />
         </Route>
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </IconConfigProvider>
   );

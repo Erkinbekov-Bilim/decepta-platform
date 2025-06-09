@@ -1,50 +1,37 @@
-import React, { useEffect, useRef, useState } from "react"
-import classes from './ThemeLanguageNav.module.scss'
-import i18n from "i18next";
+import React, { useEffect, useRef, useState } from "react";
+import classes from './ThemeLanguageNav.module.scss';
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
-import icons from '../../../../assets/nav_ic/Icons'
+import icons from '../../../../assets/nav_icons/nav_Icons';
 import { useIconConfig } from "../../../../context/IconConfigContext";
-import { LANGUAGES_OPTIONS as languagesConstant } from "../../../../constants";
+import LanguageDropdown from "./languageDropdown/LanguageDropdown";
 
 const {
   LightThemeIcon,
   NightThemeIcon,
-  LanguageIcon,
-  ProfileIcon,
-  LogoutIcon
-} = icons
-
-
+  LanguageIcon
+} = icons;
 
 const ThemeLanguageNav = () => {
-
-  const { iconConfig } = useIconConfig(); 
-
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const { iconConfig } = useIconConfig();
   const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'light');
   const rippleRef = useRef(null);
   const { t } = useTranslation();
   const [isAnimating, setIsAnimating] = useState(false);
   const [iconSwapped, setIconSwapped] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
+  const iconRef = useRef(null);
+  const dropdownRef = useRef(null);
 
   useEffect(() => {
     localStorage.setItem('theme', theme);
     document.documentElement.setAttribute('data-theme', theme);
   }, [theme]);
 
-  const handleLanguageChange = (lang) => {
-    i18n.changeLanguage(lang);
-    localStorage.setItem("language", lang);
-    setIsDropdownOpen(false);
-  }
-
   const toggleTheme = (e) => {
-
     if (isAnimating) return;
-      setIsAnimating(true);
-      setIconSwapped(false);
+    setIsAnimating(true);
+    setIconSwapped(false);
 
     const newTheme = theme === 'light' ? 'dark' : 'light';
     const ripple = rippleRef.current;
@@ -80,6 +67,20 @@ const ThemeLanguageNav = () => {
     }, 600);
   };
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        isDropdownOpen &&
+        !iconRef.current?.contains(event.target) &&
+        !dropdownRef.current?.contains(event.target)
+      ) {
+        setIsDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [isDropdownOpen]);
 
   const renderIcon = () => {
     const IconComponent = theme === "light" ? LightThemeIcon : NightThemeIcon;
@@ -90,37 +91,31 @@ const ThemeLanguageNav = () => {
     <>
       <div className={classes.menu_container}>
         <div className={classes.menu_theme}>
-        <button
-          onClick={toggleTheme}
-          className={`${classes.menu_button} ${isAnimating ? classes.spinBackForward : ""}`}
-          aria-label={t(theme === 'light' ? 'lightTheme' : 'darkTheme')}
-          title={t(theme === 'light' ? 'lightTheme' : 'darkTheme')}
-        >
-          {renderIcon()}
-        </button>
+          <button
+            onClick={toggleTheme}
+            className={`${classes.menu_button} ${isAnimating ? classes.spinBackForward : ""}`}
+            aria-label={t(theme === 'light' ? 'lightTheme' : 'darkTheme')}
+            title={t(theme === 'light' ? 'lightTheme' : 'darkTheme')}
+          >
+            {renderIcon()}
+          </button>
         </div>
-        <div
-          className={classes.menu_trigger}
-          onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-        >
-          <LanguageIcon color={iconConfig.color} width={iconConfig.width} height={iconConfig.height}/>
-        </div>
-        <div
-          className={`${classes.menu_dropdown} ${isDropdownOpen ? classes.active : classes.inactive}`}
-        >
-          <div className={classes.menu_dropdown_content}>
-            <ul>
-              {languagesConstant.map((language) => (
-                <li key={language.code}>
-                  <button onClick={() => handleLanguageChange(language.code)}>
-                    <div className={classes.language_option}>
-                      <img src={language.flag} alt={language.name} />
-                      <span>{language.name}</span>
-                    </div>
-                  </button>
-                </li>
-              ))}
-            </ul>
+
+        <div className={classes.menu_trigger_wrapper}>
+          <div
+            ref={iconRef}
+            className={classes.menu_trigger}
+            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+          >
+            <LanguageIcon color={iconConfig.color} width={iconConfig.width} height={iconConfig.height} />
+          </div>
+
+          <div ref={dropdownRef}>
+            <LanguageDropdown
+              isDropdownOpen={isDropdownOpen}
+              closeDropdown={() => setIsDropdownOpen(false)}
+              setIsDropdownOpen={setIsDropdownOpen}
+            />
           </div>
         </div>
       </div>
@@ -128,6 +123,6 @@ const ThemeLanguageNav = () => {
       <div className={classes.ripple} ref={rippleRef}></div>
     </>
   );
-}
+};
 
 export default ThemeLanguageNav;

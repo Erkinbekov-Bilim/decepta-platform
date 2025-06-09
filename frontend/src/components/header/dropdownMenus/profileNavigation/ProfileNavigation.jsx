@@ -1,8 +1,8 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { useContext, useState } from "react";
 import classes from "./ProfileNavigation.module.scss"
 import { useTranslation } from "react-i18next";
-import icons  from '../../../../assets/nav_ic/Icons'
+import nav_icons  from '../../../../assets/nav_icons/nav_Icons'
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from '../../../../context/AuthContext';
 import { useIconConfig } from "../../../../context/IconConfigContext";
@@ -15,7 +15,7 @@ const {
   SupportIcon,
   LogoutIcon,
   ArrowRightIcon
-} = icons
+} = nav_icons
 
 const ic_custom = {
   width: "26px",
@@ -24,11 +24,14 @@ const ic_custom = {
 
 const ProfileNavigation = () => {
 
+  
+
   const { t } = useTranslation();
-  const { isAuthenticated, userProfile, logout } = useContext(AuthContext);
+  const { isAuthenticated, userProfile, logout, isLoading } = useContext(AuthContext);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [hoveredIndex, setHoveredIndex] = useState(false);
 
+    
 
 
   const profileMenu = [
@@ -51,8 +54,11 @@ const ProfileNavigation = () => {
     ) 
   }
 
+  if (isLoading) {
+    return null;
+  }
 
-  return (
+  return (  
       <>
         <div className={classes.menu_container}>
           <div className={classes.menu_trigger} onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
@@ -69,7 +75,7 @@ const ProfileNavigation = () => {
               <ul>
                 {profileMenu.map((item) => (
                   <li key={item.label}>
-                    <Link to={item.to} className={classes.menu_dropdown_link} onClick={item.onClick} onMouseEnter={() => setHoveredIndex(item.label)} onMouseLeave={() => setHoveredIndex(null)}>
+                    <Link to={item.to} className={classes.menu_dropdown_link} onClick={item.onClick} onMouseEnter={() => setHoveredIndex(item.label)} onMouseLeave={() => setHoveredIndex(null)} replace>
                       <div className={classes.menu_dropdown_item}>
                         {item.icon}
                         <p>{item.label}</p>

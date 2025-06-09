@@ -1,8 +1,139 @@
+@import url('../../styles/_variables.scss');
+
+.auth_wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  align-items: center;
+  padding: 30px 0;
+  position: relative;
+}
+
 .form {
-  width: 25%;
-  height: 60%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  width: 495px;
+  padding: 45px;
+  border-radius: 60px;
+  margin: 40px auto;
+  background-color: var(--light-card-bg);
+
+  img {
+    display: block;
+    margin: 0 auto 30px;
+    width: 220px;
+    height: auto;
+  }
+
+  h1 {
+    height: 73px;
+    margin-bottom: 20px;
+    font-size: 1.9rem;
+    color: var(--light-text-color);
+  }
+
+  &_inputs {
+    margin-top: 10px;
+  }
+
+  &_group {
+    position: relative;
+    margin-bottom: 20px;
+
+    label {
+      display: block;
+      font-size: 0.9rem;
+      color: var(--light-text-color);
+      margin-bottom: 8px;
+    }
+
+    input {
+      margin-top: 15px;
+      width: 100%;
+      padding: 23px;
+      border-radius: 15px;
+      border: 1px solid var(--light-text-color);
+      font-size: 0.9rem;
+      color: var(--light-third-color);
+      background-color: white;
+      transition: border 0.3s ease;
+
+      &::placeholder {
+        color: var(--light-secondary-color);
+      }
+
+      &:focus {
+        outline: none;
+        border: 1px solid var(--light-third-color);
+      }
+
+      &:-webkit-autofill {
+        box-shadow: 0 0 0 1000px white inset !important;
+        -webkit-text-fill-color: var(--light-text-color) !important;
+      }
+    }
+
+    .input_suffix {
+      position: absolute;
+      top: 52%;
+      right: 15px;
+      transform: translateY(-50%);
+      font-size: 0.9rem;
+      color: var(--light-third-color);
+      background-color: white;
+      pointer-events: none;
+    }
+
+    .password_visibility {
+      position: absolute;
+      top: 55%;
+      right: 25px;
+      transform: translateY(-50%);
+      cursor: pointer;
+      z-index: 2;
+    }
+  }
+
+  &_error {
+    font-size: 0.75rem;
+    color: var(--error-color);
+    margin-top: 5px;
+    min-height: 18px;
+  }
+
+  &_button {
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+    background: var(--light-third-color);
+    color: var(--light-secondary-color);
+    border-radius: 15px;
+    border: 1px solid var(--light-third-color);
+    padding: 17px 15px;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: var(--light-text-color);
+      transform: scale(0.95);
+    }
+
+    &:active {
+      outline: none;
+    }
+  }
+
+  &_links {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+
+    p {
+      font-weight: normal;
+      color: var(--light-text-color);
+
+      a {
+        font-weight: 700;
+        margin-left: 5px;
+        color: var(--light-text-color);
+      }
+    }
+  }
 }

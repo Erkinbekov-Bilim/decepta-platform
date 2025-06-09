@@ -8,14 +8,21 @@
   --light-text-color: #4A2C8A; /* Основной текст */
   --light-heading-color: #000000; /* Заголовки */
   --light-border-color: #D1D1D1;
-  --light-shadow-text: #695f7d /* Границы и разделители */
+  --light-shadow-text: #695f7d; /* Границы и разделители */
+  --light-third-color: #6a48c2;
+  --error-color: #FF0000;
+  --soft-bg-color: #e8ddfa;
+  --coin-positive: #32d993;
+  --coin-negative: #ea3636;
+  --color-black-white: #000000;
+  --color-white-for-all: #FFFFFF;
 
   /* Элементы UI */
   --light-card-bg: #FFFFFF; /* Фон карточек и модальных окон */
   --light-card-border: #D1D1D1; /* Границы карточек */
   --light-nav-bg: #E0E0E0; /* Фон навигации */
   --light-nav-active: #6F42C1; /* Активный элемент навигации */
-
+  
   /* Кнопки */
   --light-btn-primary-bg: #6F42C1; /* Фон основных кнопок */
   --light-btn-primary-text: #FFFFFF; /* Текст на основных кнопках */
@@ -27,7 +34,8 @@
   --light-icon-color: #6F42C1; /* Цвет иконок */
   --light-hover-bg: #D1C4E9; /* Цвет фона при наведении */
   --light-hover-text: #4A2C8A; /* Цвет текста при наведении */
-  --ripple-color: #121212; /* цвет из dark --light-nav-active  #121212*/ 
+  --ripple-color: #121212; /* цвет из dark --light-nav-active  #121212*/
+  
 }
 
 
@@ -42,6 +50,10 @@
   --light-heading-color: #FFFFFF;
   --light-border-color: #3A3A3A;
   --light-shadow-text: #c6c0d4;
+  --light-third-color: #5a4494;
+  --color-black-white: #ffffff;
+  --color-white-for-all: #FFFFFF;
+
 
   /* Элементы UI */
   --light-card-bg: #1E1E1E;

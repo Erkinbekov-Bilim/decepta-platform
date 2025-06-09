@@ -1,0 +1,100 @@
+@import url('../../../../../styles/_variables.scss');
+
+.menu {
+  &_dropdown {
+      position: absolute;
+      top: 100px;
+      right: 335px;
+      background-color: var(--light-secondary-color);
+      border-radius: 40px;
+      width: 10%;
+      height: 165px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -10px;
+      right: 80px;
+      width: 0;
+      height: 0;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-bottom: 10px solid var(--light-secondary-color);
+    }
+
+    &.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      transition: all 0.4s ease;
+    }
+
+    &.inactive {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.4s ease;
+    }
+
+    &_content {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+
+      ul {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        list-style: none;
+        
+      }
+
+      li {
+        width: 100%;
+        display: flex;
+        list-style: none;
+        transition: all 0.2s ease;
+
+        button {
+          display: flex;
+          flex-direction: row;
+          gap: 15px;
+          background-color: transparent;
+          justify-content: center;
+          align-items: center;
+          border: none;
+          cursor: pointer;
+          width: 100%;
+          color: var(--light-text-color);
+          transition: all 0.2s ease;
+
+          &:hover {
+            border-radius: 12px;
+            background: var(--light-nav-active);
+            color: var(--light-secondary-color);
+          }
+
+          .language_option {
+            width: 120px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 15px;
+            height: 40px;
+            font-size: 12px;
+          }
+
+          img {
+            width: 26px;
+            height: 26px;
+          }
+        }
+      }
+    }
+
+  }
+}
