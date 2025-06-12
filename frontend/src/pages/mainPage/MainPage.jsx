@@ -7,6 +7,9 @@ import { AuthContext } from '../../context/AuthContext';
 import { useTranslation, Trans } from "react-i18next";
 import Container from "../../components/container/Container";
 import MainCryptoCard from "../../components/mainCryptoCard/MainCryptoCard";
+import WhyChooseUsSlider from "../../components/mainPageComponents/whyChooseUs/WhyChooseUsSlider";
+import HowItWorksSection from "../../components/mainPageComponents/howItWorks/HowItWorksSection";
+import Faq from "../../components/mainPageComponents/faqSection/Faq";
 
 const MainPage = () => {
 
@@ -16,6 +19,7 @@ const MainPage = () => {
   return (
     <Container>
       <main className={classes.main}>
+        <section className={classes.main_section}>
           <div className={classes.main_container}>
             <div className={classes.main_info}>
             {!isAuthenticated ? (
@@ -39,7 +43,18 @@ const MainPage = () => {
             )}
             </div>
           </div>
-        <MainCryptoCard/>
+          <MainCryptoCard/>
+        </section>
+        
+        <section className={classes.why_choose_us}>
+          <WhyChooseUsSlider/>
+        </section>
+        <section>
+          <HowItWorksSection/>
+        </section>
+        <section>
+          <Faq/>
+        </section>
       </main>
     </Container>
   );

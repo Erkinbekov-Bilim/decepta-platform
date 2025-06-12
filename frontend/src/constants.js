@@ -7,3 +7,5 @@ export const LANGUAGES_OPTIONS = [
   { code: "ru", name: "Русский", flag: flags.russian_flag },
   { code: "zh", name: "中文", flag: flags.chinese_flag },
 ]
+
+export const SLIDE_INTERVAL = 3000

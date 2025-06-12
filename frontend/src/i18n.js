@@ -67,6 +67,53 @@ i18n
           "Verify Now": "Verify Now",
           "mainPage.after_login": "To continue trading, <1>please confirm your phone number</1>",
 
+          "why.low_fees": "Low fees",
+          "why.low_fees.reason1.title": "More profit on every trade and withdrawal",
+          "why.low_fees.reason2.title": "Trade more often without losing out on costs and fees",
+          "why.low_fees.reason3.title": "Ideal for active traders and beginners",
+
+          "why.security": 'Reliable Security',
+          "why.security.reason1.title": "Your funds are protected by multi-level systems",
+          "why.security.reason2.title": "We use advanced data encryption methods",
+          "why.security.reason3.title": "Account security is a top priority",
+
+          "why.fast_transactions": "Instant Transactions",
+          "why.fast_transactions.reason1.title": "Make purchases and sales without delays",
+          "why.fast_transactions.reason2.title": "Reacting to the market in real time is important",
+          "why.fast_transactions.reason3.title": "High speed - maximum efficiency",
+
+          "why.support": "24/7 Support and Localization",
+          "why.support.reason1.title": "We answer questions at any time of day or night",
+          "why.support.reason2.title": "Support in your language - without barriers",
+          "why.support.reason3.title": "We help each client quickly and understandably",
+
+          "Why Choose Us?": "Why Choose Us?",
+          "How it Works?": "How it Works?",
+
+          "how.create_account": "Create an account",
+          "how.create_account.description": "Easy registration in a minute, set up 2FA for maximum security.",
+          "how.create_account.link_text": "Sign up",
+
+          "how.top_up_balance": "Top up your balance",
+          "how.top_up_balance.description": "Deposit funds in a convenient way: cryptocurrency, bank transfer or e-wallets.",
+          "how.top_up_balance.link_text": "Make a deposit",
+
+          "how.start_trading": "Start trading",
+          "how.start_trading.description": "Choose assets, use advanced tools and make profitable deals.",
+          "how.start_trading.link_text": "Start trading",
+
+          "You did it!": "You did it!",
+
+          "faq.how_do_sign_up": "How do I sign up for Decepta?",
+          "faq.how_do_sign_up.answer": "To register on Decepta, go to the home page, click “Create an account” and follow the instructions. You will need to enter your email, create a password and verify.",
+
+          "faq.why_low_fees": "What are the commissions on the platform?",
+          "faq.why_low_fees.answer": "Decepta has a very low commission of 0.1% on all transactions. This means that you get the best price for your assets.",
+          "faq.how_to_deposit_and_withdraw": "How to deposit and withdraw funds?",
+          "faq.how_to_deposit_and_withdraw.answer": "How to deposit and withdraw funds? To deposit, go to Wallet > Deposit, choose a method (card, bank, or crypto), and follow the steps. To withdraw, go to Wallet > Withdraw, enter the details, and confirm. Verification is required.",
+
+          "faq.how_safe_exchange": "How safe is the Decepta exchange?",
+          "faq.how_safe_exchange.answer": "Decepta is a relatively unknown platform with limited public information and no clear regulatory status. Before using it, make sure to verify its licenses, read user reviews, and test with a small amount. As with any exchange, avoid sending funds if something feels suspicious."
         }
       },
       ru: {
@@ -120,6 +167,42 @@ i18n
           "Verify Now": "Подтвердить сейчас",
           "mainPage.after_login": "Для продолжения торговли, <1>пожалуйста, подтвердите ваш номер телефона</1>",
 
+          "why.low_fees": "Низкие комиссии",
+          "why.low_fees.reason1.title": "Больше прибыли на каждом сделке и выводе",
+          "why.low_fees.reason2.title": "Торгуйте чаще, не теряя на расходах и комиссиях",
+          "why.low_fees.reason3.title": "Идеально для активных трейдеров и новичков",
+
+          "why.security": 'Надежная безопасность',
+          "why.security.reason1.title": "Ваши средства защищены многоуровневыми системами",
+          "why.security.reason2.title": "Мы используем продвинутые методы шифрования данных",
+          "why.security.reason3.title": "Безопасность аккаунта - главный приоритет",
+
+          "why.fast_transactions": "Быстрые транзакции",
+          "why.fast_transactions.reason1.title": "Совершайте покупки и продажи без задержек",
+          "why.fast_transactions.reason2.title": "Реагируйте на рынок в реальном времени важно",
+          "why.fast_transactions.reason3.title": "Высокая скорость - максимальная эффективность",
+
+          "why.support": "Поддержка 24/7 и локализация",
+          "why.support.reason1.title": "Мы отвечаем на вопросы в любое время дня и ночи",
+          "why.support.reason2.title": "Поддержка на вашем языке - без барьеров",
+          "why.support.reason3.title": "Мы помогаем каждому клиенту быстро и понятно",
+
+          "Why Choose Us?": "Почему выбирают нас?",
+          "How it Works?": "Как это работает?",
+
+          "how.create_account": "Создать Аккаунт",
+          "how.create_account.description": "Простая регистрация за минуту, установите 2FA для максимальной безопасности.",
+          "how.create_account.link_text": "Создать!",
+
+          "how.top_up_balance": "Пополнить баланс",
+          "how.top_up_balance.description": "Вносите средства удобным способом: криптовалютой, банковским переводом или с помощью электронных кошельков.",
+          "how.top_up_balance.link_text": "Пополнить!",
+
+          "how.start_trading": "Начать торговлю",
+          "how.start_trading.description": "Выбирайте активы, используйте передовые инструменты и заключайте выгодные сделки.",
+          "how.start_trading.link_text": "Начать!",
+
+          "You did it!": "Вы сделали это!",
         }
       },
       zh: {
@@ -172,6 +255,42 @@ i18n
           "View All": "查看所有",
           "Verify Now": "现在验证",
           "mainPage.after_login": "为了继续交易，<1>请确认您的电话号码</1>",
+          "why.low_fees": "低费用",
+          "why.low_fees.reason1.title": "更多利润在每笔交易和提现",
+          "why.low_fees.reason2.title": "更多交易，不会丢失在费用和手续费",
+          "why.low_fees.reason3.title": "适合活跃的交易者和新手",
+
+          "why.security": "安全性",
+          "why.security.reason1.title": "使用最先进的安全技术",
+          "why.security.reason2.title": "我们使用高级数据加密方法",
+          "why.security.reason3.title": "账户安全是首要的",
+
+          "why.fast_transactions": "快速交易",
+          "why.fast_transactions.reason1.title": "无需等待，购买和销售加密货币",
+          "why.fast_transactions.reason2.title": "在实时市场上进行反应很重要",
+          "why.fast_transactions.reason3.title": "高速，最大效率",
+
+          "why.support": "支持",
+          "why.support.reason1.title": "24/7 在线支持",
+          "why.support.reason2.title": "用您的语言提供支持 - 无障碍",
+          "why.support.reason3.title": "我们帮助每一位客户快速理解",
+
+          "Why Choose Us?": "为什么选择我们？",
+          "How it Works?": "如何工作？",
+
+          "how.create_account": "创建账户",
+          "how.create_account.description": "只需一分钟注册，设置2FA以获得最高安全性。",
+          "how.create_account.link_text": "注册",
+
+          "how.top_up_balance": "充值余额",
+          "how.top_up_balance.description": "使用方便的方式充值：加密货币，银行转账或使用电子钱包。",
+          "how.top_up_balance.link_text": "充值",
+
+          "how.start_trading": "开始交易",
+          "how.start_trading.description": "在现货市场上购买和出售加密货币，使用高级工具。",
+          "how.start_trading.link_text": "开始交易",
+
+          "You did it!": "你做到了!",
         }
       }
     }

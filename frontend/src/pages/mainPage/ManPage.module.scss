@@ -1,10 +1,16 @@
 @import url('../../styles/_variables.scss');
 
 .main {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
   width: 100%;
+  margin-top: 50px;
+
+
+  &_section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
   &_info {
     width: 520px;
     display: flex;
@@ -40,4 +46,10 @@
       background: var(--light-primary-color);
     }
   }
+}
+
+
+section {
+  width: 100%;
+  margin-top: 100px;
 }

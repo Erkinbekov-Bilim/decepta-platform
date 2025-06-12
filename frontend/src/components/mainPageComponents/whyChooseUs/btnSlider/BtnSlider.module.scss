@@ -1,0 +1,18 @@
+.btn_slider { 
+  background: var(--light-third-color);
+  border: 1px solid var(--light-third-color);
+  border-radius: 100px;
+  border: none;
+  cursor: pointer;
+  fill: var(--light-bg-color);
+  width: 90px;  
+  height: 90px;
+  transition: all 0.2s ease;
+
+  &:hover {
+    transform: scale(0.90);
+    background: var(--light-card-bg);
+    fill: var(--light-third-color);
+    border: 1px solid var(--light-third-color);
+  }
+}
